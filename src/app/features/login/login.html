@@ -6,13 +6,6 @@
         <button type="submit">Log In</button>
     </form>
 
-    <!--Native Modal for Success/warning messages -->
-
-    <dialog #statusDialog>
-        <div class="modal-content">
-            <p>{{ statusMessage()}}</p>
-            <button (click)="closeModal()">Dismiss</button>
-        </div>
-    </dialog>
-
+    <!--Modal placement -->
+    <app-status-modal [message]="statusMessage()"></app-status-modal>
 </div>

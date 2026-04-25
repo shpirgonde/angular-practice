@@ -1,13 +1,16 @@
 import { Component, ElementRef, signal, viewChild } from '@angular/core';
+import { Statusmodal } from '../../shared/components/modals/statusmodal/statusmodal';
 
 @Component({
   selector: 'app-login',
-  imports: [],
+  imports: [Statusmodal],
   templateUrl: './login.html',
   styleUrl: './login.scss',
 })
 export class Login {
-  private dialog = viewChild<ElementRef<HTMLDialogElement>>('statusDialog');
+
+  //Reference the modal Component via viewChild
+  modal = viewChild(Statusmodal)
 
   statusMessage = signal('');
 
@@ -22,12 +25,8 @@ export class Login {
       this.statusMessage.set('Error: Invalid credentials. Please try again.');
     }
 
-    //Open the native modal
+    //Open the modal using the child component's method
 
-    this.dialog()?.nativeElement.showModal();
-  }
-
-  closeModal() {
-    this.dialog()?.nativeElement.close();
+    this.modal()?.open();
   }
 }
