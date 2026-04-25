@@ -1,0 +1,34 @@
+.login-container {
+    max-width: 300px;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input,
+button {
+    padding: 8px;
+    width: 100%;
+}
+
+
+dialog {
+    margin: 0 auto; //Centers it horizontally
+    margin-top: 50px; //sets the distance from top;
+
+    position: fixed;
+    top: 0;
+
+    border: none;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+// Background Overlay when modal is open
+
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+}
