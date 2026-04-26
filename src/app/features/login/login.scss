@@ -1,3 +1,5 @@
+    @use "sass:color";
+
     @use '../../../styles/abstracts/palette' as c;
     @use '../../../styles/abstracts/settings' as s;
 
@@ -79,7 +81,8 @@
             transition: background 0.2s;
 
             &:hover {
-                background-color: darken(c.$color-primary-700, 5%);
+                //background-color: darken(c.$color-primary-700, 5%);
+                background-color: color.adjust(c.$color-primary-700, $lightness: -5%);
             }
         }
 
