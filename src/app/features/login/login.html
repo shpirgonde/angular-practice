@@ -4,24 +4,26 @@
             <h1 class="login-card__title">Log In</h1>
         </header>
 
-        <form action="" class="login-form">
+        <form action="" class="login-form" #loginForm="ngForm">
 
             <div class="login-form__group">
                 <label for="email" class="form-label">Email</label>
-                <input class="form-input" type="email" id="email" placeholder="name@xxx.com" required>
+                <input class="form-input" name="email" type="email" id="email" placeholder="name@xxx.com" ngModel
+                    required email>
             </div>
 
             <div class="login-form__group">
                 <label for="password" class="form-label">Password</label>
-                <input class="form-input" type="password" id="password" placeholder="••••••••">
+                <input class="form-input" name="password" type="password" id="password" placeholder="••••••••" ngModel
+                    required minlength="6">
             </div>
 
-            <button class="login-form__button" type="submit">Sign In</button>
+            <button class="login-form__button" type="submit" [disabled]="!loginForm.valid">Sign In</button>
         </form>
 
-            <footer class="login-form__footer">
-                <p>Dont have an account? <a href="#">Sign Up</a></p>
-            </footer>
+        <footer class="login-form__footer">
+            <p>Dont have an account? <a href="#">Sign Up</a></p>
+        </footer>
     </div>
 </main>
 

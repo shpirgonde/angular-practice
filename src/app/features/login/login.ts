@@ -1,9 +1,10 @@
 import { Component, ElementRef, signal, viewChild } from '@angular/core';
 import { Statusmodal } from '../../shared/components/modals/statusmodal/statusmodal';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
-  imports: [Statusmodal],
+  imports: [Statusmodal, FormsModule],
   templateUrl: './login.html',
   styleUrl: './login.scss',
 })
