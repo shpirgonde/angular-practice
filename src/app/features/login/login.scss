@@ -1,7 +1,8 @@
-    @use '../../../styles/abstracts/variables' as v;
+    @use '../../../styles/abstracts/palette' as c;
+    @use '../../../styles/abstracts/settings' as s;
 
     .login-wrapper {
-        background-color: v.$color-card-bg;
+        background-color: c.$color-card-bg;
         min-height: 100vh;
         width: 100%;
         display: flex;
@@ -10,14 +11,14 @@
     }
 
     .login-card {
-        background-color: v.$color-white;
+        background-color: c.$color-white;
         width: 100%;
         max-width: 400px;
         padding: 40px;
-        border-radius: 4px;
+        border-radius: s.$br-round;
         //box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-        
+
         display: flex;
         flex-direction: column;
         gap: 30px;
@@ -46,39 +47,39 @@
             label {
                 font-size: 14px;
                 font-weight: 500;
-                $color: v.$color-primary-700;
+                $color: c.$color-primary-700;
             }
 
             input {
                 padding: 12px 16px;
                 border: 1px solid #d1d5db;
-                border-radius: 5px;
+                border-radius: s.$br-round;
                 font-size: 16px;
                 transition: all 0.2s ease;
 
                 &:focus {
                     outline: none;
-                    border-color: v.$color-primary-700;
-                    box-shadow: 0 0 0 3px rgba(v.$color-primary-700, 0.1); // Soft focus ring
+                    border-color: c.$color-primary-700;
+                    box-shadow: 0 0 0 3px rgba(c.$color-primary-700, 0.1); // Soft focus ring
                 }
             }
         }
 
 
         &__button {
-            background-color: v.$color-primary-700;
-            color: v.$color-white;
+            background-color: c.$color-primary-700;
+            color: c.$color-white;
             font-size: 16px;
             font-weight: 600;
             border: none;
             padding: 14px;
-            border-radius: 5px;
+            border-radius: s.$br-round;
             cursor: pointer;
             margin-top: 10px;
             transition: background 0.2s;
 
             &:hover {
-                background-color: darken(v.$color-primary-700, 5%);
+                background-color: darken(c.$color-primary-700, 5%);
             }
         }
 
@@ -88,7 +89,7 @@
             color: #666;
 
             a {
-                color: v.$color-primary-700;
+                color: c.$color-primary-700;
                 text-decoration: none;
                 font-weight: 500;
 
