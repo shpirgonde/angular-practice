@@ -20,6 +20,7 @@
        margin-bottom: 16px;
        overflow: hidden;
        position: relative;
+       padding: 5px; //sp
    }
 
    .toast-icon {
@@ -88,19 +89,19 @@
 
    //Toaster loder style definition
 
-   .success toast.loader {
-       background-color: c.$color-success-300;
+   .success .toast-loader {
+       background-color: c.$color-success-900;
    }
 
-   .error toast.loader {
-       background-color: c.$color-error-200;
+   .error .toast-loader {
+       background-color: c.$color-error-950;
    }
 
-   .warning toast.loader {
-       background-color: c.$color-warning-200;
+   .warning .toast-loader {
+       background-color: c.$color-warning-800;
    }
 
-   toast.loader {
+   .toast-loader {
        position: absolute;
        bottom: 0;
        left: 0;

@@ -1,6 +1,7 @@
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
-import { NgClass } from '@angular/common';
+import { NgClass, AsyncPipe } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 
 import {
   faCheck,
@@ -14,33 +15,23 @@ import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-toaster',
-  imports: [NgClass, FontAwesomeModule],
+  imports: [NgClass, FontAwesomeModule, AsyncPipe],
   templateUrl: './toaster.html',
   styleUrl: './toaster.scss',
 })
-export class Toaster implements OnInit, OnDestroy {
+export class Toaster {
 
   private toasterService = inject(ToasterService);
 
   toasts: Toast[] = [];
-  private subscription: Subscription = new Subscription;
 
-  ngOnInit(): void {
-    this.subscription = this.toasterService.toast$.subscribe(toasts => this.toasts = toasts)
-  }
+  toasts$ = this.toasterService.toast$;
 
   removeToast(id: number) {
     this.toasterService.remove(id);
   }
 
-  ngOnDestroy(): void {
-    if (this.subscription) {
-      this.subscription.unsubscribe();
-    }
-  }
 
-  //Mock data for the example
-  toast = { type: 'success', message: 'Task Complete' };
 
   //Helper method to return the correct icon object
 
