@@ -1,17 +1,16 @@
-import { Component, inject, OnDestroy, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { NgClass, AsyncPipe } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 import {
-  faCheck,
   faCheckCircle,
   faExclamationTriangle,
   faTimesCircle,
   faInfoCircle
 } from '@fortawesome/free-solid-svg-icons';
 import { Toast, ToasterService } from '../../services/toaster.service';
-import { Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'app-toaster',
@@ -30,8 +29,6 @@ export class Toaster {
   removeToast(id: number) {
     this.toasterService.remove(id);
   }
-
-
 
   //Helper method to return the correct icon object
 
