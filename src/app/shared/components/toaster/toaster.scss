@@ -1,0 +1,119 @@
+   @use '../../../../styles/abstracts/palette' as c;
+
+   .toaster-container {
+       position: fixed;
+       top: 20px;
+       right: 20px;
+       z-index: 1000;
+       display: flex;
+       flex-direction: column;
+       align-items: flex-end;
+       cursor: pointer;
+   }
+
+   .toast {
+       display: flex;
+       align-items: center;
+       width: 320px;
+       min-height: 64px;
+       border-radius: 4px;
+       margin-bottom: 16px;
+       overflow: hidden;
+       position: relative;
+   }
+
+   .toast-icon {
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       width: 24px;
+       height: 24px;
+       font-size: 1.2rem;
+       flex-shrink: 0;
+       //padding:12px;
+   }
+
+   .toast-content {
+       flex-grow: 1;
+       padding: 12px 8px;
+   }
+
+   .toast-title {
+       font-weight: 600;
+       margin-bottom: 3px;
+   }
+
+   .toast-message {
+       font-size: 15px;
+   }
+
+   .close-btn {
+       position: absolute;
+       top: 5px;
+       right: 10px;
+       background: none;
+       border: none;
+       font-weight: 600;
+       font-size: 22px;
+       cursor: pointer;
+       padding: 0;
+       color: inherit;
+       opacity: 0.7;
+       transition: opcaity 0.2s;
+   }
+
+   .close-btn:hover {
+       opacity: 1;
+
+   }
+
+
+   //Toaster style definitions
+
+   .success {
+       background-color: c.$color-success-300;
+       color: c.$color-success-900;
+   }
+
+   .error {
+       background-color: c.$color-error-200;
+       color: c.$color-error-950;
+   }
+
+   .warning {
+       background-color: c.$color-warning-200;
+       color: c.$color-warning-800
+   }
+
+
+   //Toaster loder style definition
+
+   .success toast.loader {
+       background-color: c.$color-success-300;
+   }
+
+   .error toast.loader {
+       background-color: c.$color-error-200;
+   }
+
+   .warning toast.loader {
+       background-color: c.$color-warning-200;
+   }
+
+   toast.loader {
+       position: absolute;
+       bottom: 0;
+       left: 0;
+       height: 4px;
+       animation: loader 3s linear;
+   }
+
+   @keyframes loader {
+       0% {
+           width: 100%;
+       }
+
+       100% {
+           width: 0%;
+       }
+   }
