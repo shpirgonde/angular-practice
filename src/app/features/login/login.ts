@@ -16,7 +16,9 @@ export class Login {
   statusMessage = signal('');
 
   onLogin(event: Event) {
-    event.preventDefault();// When you click a "Submit" button, the browser naturally reloads the page. Using preventDefault() stops that reload so you can validate inputs or send data via
+    // When you click a "Submit" button, the browser naturally reloads the page. Using preventDefault() stops that reload so you can validate inputs or send data via
+    //event.preventDefault();
+
     const isSuccess = Math.random() > 0.5; // Simulate a login success or failure randomly
 
     if (isSuccess) {

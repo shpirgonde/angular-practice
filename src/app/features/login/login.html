@@ -4,7 +4,7 @@
             <h1 class="login-card__title">Log In</h1>
         </header>
 
-        <form action="" class="login-form" #loginForm="ngForm">
+        <form (submit)="onLogin($event)" class="login-form" #loginForm="ngForm">
 
             <div class="login-form__group">
                 <label for="email" class="form-label">Email</label>
@@ -25,16 +25,7 @@
             <p>Dont have an account? <a href="#">Sign Up</a></p>
         </footer>
     </div>
+    <app-status-modal [message]="statusMessage()"></app-status-modal>
 </main>
 
 
-<!-- <div class="login-container">
-    <h2>Login</h2>
-    <form (submit)="onLogin($event)">
-        <input type="text" placeholder="Username" required>
-        <input type="password" placeholder="Password" required>
-        <button type="submit">Log In</button>
-    </form>
-
-    <app-status-modal [message]="statusMessage()"></app-status-modal>
-</div> -->
