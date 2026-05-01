@@ -25,11 +25,11 @@ export class Login {
 
     if (isSuccess) {
       //this.statusMessage.set('Login successful!');
-      this.toasterService.success('success', 'This is a success message')
+      this.toasterService.success('Success', 'This is a success message')
     }
     else {
       //this.statusMessage.set('Error: Invalid credentials. Please try again.');
-      this.toasterService.error('error', 'This is a error message')
+      this.toasterService.error('Error', 'This is a error message')
     }
 
     //Open the modal using the child component's method

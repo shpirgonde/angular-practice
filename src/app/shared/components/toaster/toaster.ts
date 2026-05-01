@@ -44,16 +44,3 @@ export class Toaster {
 
 
 
-// animations: [
-//     trigger('toasterAnimation', [
-//       transition(':enter', [
-//         // Fix: translateY (not tranlateY) and opacity (not opcaity)
-//         style({ transform: 'translateY(100%)', opacity: 0 }),
-//         animate('300ms ease-out', style({ transform: 'translateY(0)', opacity: 1 }))
-//       ]),
-//       transition(':leave', [
-//         // Fix: opacity (not opcaity)
-//         animate('300ms ease-in', style({ transform: 'translateY(100%)', opacity: 0 }))
-//       ])
-//     ])
-//   ]

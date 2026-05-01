@@ -1,6 +1,6 @@
 <div class="toaster-container">
     @for(toast of (toasts$ | async); track toast.id){
-    <div class="toast" [ngClass]="'toast--' + toast.type">
+    <div class="toast" [ngClass]="'toast--' + toast.type" animate.enter="toast-enter" animate.leave="toast-leave">
         <div class="toast-icon">
             <fa-icon [icon]="getIcon(toast.type)"></fa-icon>
         </div>
