@@ -1,95 +1,72 @@
    @use '../../../../styles/abstracts/palette' as c;
 
+
+   // BLOCK: The Container (Layout)
    .toaster-container {
        display: flex;
        flex-direction: column;
        align-items: center;
        position: fixed;
        top: 1rem; // 20px;
+       left: 50%;
        transform: translateX(-50%);
        gap: 4px;
-       //right: 20px;
-       left: 50%;
        z-index: 1000;
        cursor: pointer;
+   }
 
-       .toast {
+   // BLOCK: The Toast Component
+
+   .toast {
+       display: flex;
+       align-items: center;
+       width: 320px;
+       min-height: 64px;
+       border-radius: 4px;
+       margin-bottom: 16px;
+       overflow: hidden;
+       position: relative;
+       padding: 5px; //sp
+
+       // ELEMENTS (__element)
+
+       &__icon {
            display: flex;
            align-items: center;
-           width: 320px;
-           min-height: 64px;
-           border-radius: 4px;
-           margin-bottom: 16px;
-           overflow: hidden;
-           position: relative;
-           padding: 5px; //sp
-
-           &-icon {
-               display: flex;
-               align-items: center;
-               justify-content: center;
-               width: 24px;
-               height: 24px;
-               font-size: 1.2rem;
-               flex-shrink: 0;
-               //padding:12px;
-           }
-
-           &-content {
-               flex-grow: 1;
-               padding: 12px 8px;
-           }
-
-
-           &-title {
-               font-weight: 600;
-               margin-bottom: 3px;
-           }
-
-
-           &-message {
-               font-size: 15px;
-           }
-
-           &-loader {
-               position: absolute;
-               bottom: 0;
-               left: 0;
-               height: 4px;
-               animation: loader 3s linear;
-           }
-
-           //Toaster style definitions
-           &--success {
-               background-color: c.$color-success-300;
-               color: c.$color-success-900;
-
-               //Toaster loder style definition
-               .toast-loader {
-                   background-color: c.$color-success-900;
-               }
-           }
-
-           &--error {
-               background-color: c.$color-error-200;
-               color: c.$color-error-950;
-
-               .toast-loader {
-                   background-color: c.$color-error-950;
-               }
-           }
-
-           &--warning {
-               background-color: c.$color-warning-200;
-               color: c.$color-warning-800;
-
-               .toast-loader {
-                   background-color: c.$color-warning-800;
-               }
-           }
+           justify-content: center;
+           width: 24px;
+           height: 24px;
+           font-size: 1.2rem;
+           flex-shrink: 0;
+          // padding: 4px;
        }
 
-       .close-btn {
+       &__content {
+           flex-grow: 1;
+           padding: 12px 8px;
+       }
+
+
+       &__title {
+           font-weight: 600;
+           margin-bottom: 3px;
+       }
+
+
+       &__message {
+           font-size: 15px;
+       }
+
+       &__loader {
+           position: absolute;
+           bottom: 0;
+           left: 0;
+           height: 4px;
+           animation: loader 3s linear;
+       }
+
+
+       &__close-btn {
            position: absolute;
            top: 5px;
            right: 10px;
@@ -108,7 +85,39 @@
 
            }
        }
+
+       // MODIFIERS (--modifier)
+       // Toaster style definitions
+       &--success {
+           background-color: c.$color-success-300;
+           color: c.$color-success-900;
+
+           //Toaster loder style definition
+           .toast__loader {
+               background-color: c.$color-success-900;
+           }
+       }
+
+       &--error {
+           background-color: c.$color-error-200;
+           color: c.$color-error-950;
+
+           .toast__loader {
+               background-color: c.$color-error-950;
+           }
+       }
+
+       &--warning {
+           background-color: c.$color-warning-200;
+           color: c.$color-warning-800;
+
+           .toast__loader {
+               background-color: c.$color-warning-800;
+           }
+       }
    }
+
+
 
    //Animation:-
 
