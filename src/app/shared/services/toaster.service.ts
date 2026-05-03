@@ -1,36 +1,24 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { Injectable, signal } from '@angular/core';
 
+
+
+export interface Toast {
+  id: number;
+  title: string;
+  message: string;
+  type: 'success' | 'error' | 'warning' | 'info';
+}
 
 @Injectable({
   providedIn: 'root',
 })
 export class ToasterService {
 
-  private toasts: Toast[] = [];
+  //1.Private writable signal;
+  private _toasts = signal<Toast[]>([]);
 
-  private toastSubject = new BehaviorSubject<Toast[]>([]);
-  toast$ = this.toastSubject.asObservable();
-
-
-  private show(title: string, message: string, type: 'success' | 'error' | 'warning' | 'info') {
-    const id = Date.now();
-    const toast: Toast = { id, title, message, type };
-    // this.toasts.push(toast)
-
-    this.toasts = [...this.toasts, toast];
-    this.toastSubject.next(this.toasts);
-
-    setTimeout(() => this.remove(id), 3000);
-
-    return id;
-  }
-
-  remove(id: number) {
-    this.toasts = this.toasts.filter(t => t.id !== id);
-    this.toastSubject.next(this.toasts);
-    console.log("remove called...")
-  }
+  //2.Public read-only signal;
+  readonly toasts = this._toasts.asReadonly();
 
   success(title: string, message: string) {
     return this.show(title, message, 'success');
@@ -45,13 +33,22 @@ export class ToasterService {
     return this.show(title, message, 'warning');
   }
 
+  private show(title: string, message: string, type: 'success' | 'error' | 'warning' | 'info') {
+    const id = Date.now();
+    const toast: Toast = { id, title, message, type };
+    // this.toasts.push(toast)
+
+    this._toasts.update(all => [...all, { id, title, message, type: type }])
+
+    setTimeout(() => this.remove(id), 3000);
+
+    return id;
+  }
+
+  remove(id: number) {
+    this._toasts.update((all: any[]) => all.filter(t => t.id !== id))
+    console.log("remove called...")
+  }
 
 }
 
-
-export interface Toast {
-  id: number;
-  title: string;
-  message: string;
-  type: 'success' | 'error' | 'warning' | 'info';
-}

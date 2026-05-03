@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { NgClass, AsyncPipe } from '@angular/common';
+import { NgClass } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
@@ -14,7 +14,7 @@ import { Toast, ToasterService } from '../../services/toaster.service';
 
 @Component({
   selector: 'app-toaster',
-  imports: [NgClass, FontAwesomeModule, AsyncPipe],
+  imports: [NgClass, FontAwesomeModule],
   templateUrl: './toaster.html',
   styleUrl: './toaster.scss',
 })
@@ -22,9 +22,7 @@ export class Toaster {
 
   private toasterService = inject(ToasterService);
 
-  toasts: Toast[] = [];
-
-  toasts$ = this.toasterService.toast$;
+  toasts = this.toasterService.toasts;
 
   removeToast(id: number) {
     this.toasterService.remove(id);
