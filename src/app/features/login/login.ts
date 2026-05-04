@@ -3,10 +3,11 @@ import { Statusmodal } from '../../shared/components/modals/statusmodal/statusmo
 import { FormsModule } from '@angular/forms';
 import { Toaster } from "../../shared/components/toaster/toaster";
 import { ToasterService } from '../../shared/services/toaster.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login',
-  imports: [Statusmodal, FormsModule, Toaster],
+  imports: [RouterLink, Statusmodal, FormsModule, Toaster],
   templateUrl: './login.html',
   styleUrl: './login.scss',
 })
