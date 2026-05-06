@@ -3,6 +3,31 @@
         <header class="login-card__header">
             <h1 class="login-card__title">Sign Up</h1>
         </header>
-        <p>signup works!</p>
+        <form class="login-form" #signUpForm="ngForm">
+
+            <div class="login-form__group">
+                <label for="name" class="form-label">Full Name</label>
+                <input class="form-input" name="name" type="text" id="name" placeholder="Name" ngModel required>
+            </div>
+
+
+            <div class="login-form__group">
+                <label for="email" class="form-label">Email</label>
+                <input class="form-input" name="email" type="email" id="email" placeholder="name@xxx.com" ngModel
+                    required email>
+            </div>
+
+            <div class="login-form__group">
+                <label for="password" class="form-label">Password</label>
+                <input class="form-input" name="password" type="password" id="password" placeholder="••••••••" ngModel
+                    required minlength="6">
+            </div>
+
+            <button class="login-form__button" type="submit" [disabled]="!signUpForm.valid">Sign Up</button>
+        </form>
+
+        <footer class="login-card__footer">
+            <p>Already have an account? <a routerLink="/login">Sign In</a></p>
+        </footer>
     </div>
 </main>

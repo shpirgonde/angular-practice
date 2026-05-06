@@ -1,6 +1,7 @@
 //Things to do
 
 1.Sign up form
+2.Password requirement(length,special chars, numbers, alphabets)
 2.Sidebar
 3.Header nav
 4.Content
