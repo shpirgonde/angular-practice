@@ -11,3 +11,4 @@
 8.Design cutom select, check how it can be customized with user provided params.
 9.Custom Calender with user provided params(color, fromTo).
 10.Add @mixins and variables, wherever possible.
+11.Use css/scss variables for input style numbers

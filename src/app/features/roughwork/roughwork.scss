@@ -1,0 +1,20 @@
+.container {
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.user-input {
+    width: 320px;
+    padding: 12px 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    transition: 0.2s ease;
+}
+
+.user-input:focus{
+    border-color:#2563eb;
+    box-shadow: 0 0 0 3px rgba(37,99,235,0.2);
+}
