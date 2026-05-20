@@ -28,3 +28,5 @@ textarea
 
 - Group → Group = 40px
 - Label → Control = 8px
+
+https://m3.material.io/components/text-fields/specs
