@@ -1,0 +1,42 @@
+
+// 1. Angular HTTP->Observable->signal pattern
+
+import { Component, inject, signal } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+// Interface definition for safety
+interface User {
+  id: number;
+  name: string;
+  email: string;
+}
+
+@Component({
+  selector: 'app-user-list',
+  standalone: true,
+  template: `<!-- Your HTML Template Goes Here -->`
+})
+export class UserListComponent {
+  private http = inject(HttpClient);
+
+  loading = signal(false);
+  users = signal<User[]>([]);
+  error = signal<string | null>(null);
+
+  loadUsers() {
+    this.loading.set(true);
+    this.error.set(null); // Reset past errors on new request
+
+    this.http.get<User[]>('/api/users')
+      .subscribe({
+        next: (users) => {
+          this.users.set(users);
+          this.loading.set(false); // Turn off loading on success
+        },
+        error: (err) => {
+          this.error.set(err.message || 'An error occurred');
+          this.loading.set(false); // Turn off loading on failure
+        }
+      });
+  }
+}
